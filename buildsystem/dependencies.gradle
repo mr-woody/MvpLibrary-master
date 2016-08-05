@@ -1,0 +1,49 @@
+ext.versions = [
+        packageName      : "com.stanfy.spoon.example",
+
+        version_code     : 330,
+        version_name     : "3.3.0",
+
+        minSDK           : 9,
+        targetSDK        : 23,
+        compileVersion   : 23,
+        buildToolsVersion: "22.0.1",
+]
+
+ext.libsVersion = [
+
+        supportPercent     : "22.2.0",
+        supportAnnotations : "23.3.0",
+        supportPalette     : "21.0.3",
+        supportV4          : "22.0.0",
+        supportRecyclerview: "22.1.1",
+        supportCardview    : "23.1.0",
+        supportAll         : "23.4.0",//support系列最新版本
+
+        // Library versions
+        nineOldAndroids    : '2.4.0',
+        gson               : "2.1",
+
+        butterknife7       : "7.0.1",
+        butterknife8       : "8.0.1",
+        photoView          : "1.2.6",
+        orhanobutLogger    : "1.12",
+        rxandroid          : "0.24.0",
+        roundview          : "1.1.4"
+]
+
+ext.libraries = [
+        supportPercent     : "com.android.support:percent:$libsVersion.supportPercent",
+        supportAnnotations : "com.android.support:support-annotations:$libsVersion.supportAnnotations",
+        supportPalette     : "com.android.support:palette-v7:$libsVersion.supportPalette",
+        supportV4          : "com.android.support:support-v4:$libsVersion.supportV4",
+        supportRecyclerview: "com.android.support:recyclerview-v7:$libsVersion.supportRecyclerview",
+        supportCardview    : "com.android.support:cardview-v7:$libsVersion.supportCardview",
+        supportDesign      : "com.android.support:design:$libsVersion.supportLibs",
+
+        nineOldAndroids    : "com.nineoldandroids:library:$libsVersion.nineOldAndroids",
+        squareup           : "com.squareup.okhttp:okhttp:$libsVersion.squareup",
+        gson               : "com.google.code.gson:gson:${libsVersion.gson}",
+
+        photoView          : "com.github.chrisbanes:PhotoView:${libsVersion.photoView}",
+]
