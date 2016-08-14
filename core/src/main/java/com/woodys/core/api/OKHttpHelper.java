@@ -1,6 +1,6 @@
 package com.woodys.core.api;
 
-import com.woodys.core.App;
+import com.woodys.core.BaseApp;
 
 import java.io.File;
 import java.io.IOException;
@@ -33,7 +33,7 @@ public class OKHttpHelper {
         HttpLoggingInterceptor interceptor = new HttpLoggingInterceptor();
         interceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
 
-        File cacheFile = new File(App.getContext().getCacheDir(), "android");
+        File cacheFile = new File(BaseApp.getContext().getCacheDir(), "android");
         Cache cache = new Cache(cacheFile, 1024 * 1024 * 100); //100Mb
 
         OkHttpClient okHttpClient = null;
@@ -50,7 +50,7 @@ public class OKHttpHelper {
                             return true;
                         }
                     })
-                    .sslSocketFactory(setCertificates(App.getContext().getAssets().open("https.cer")))
+                    .sslSocketFactory(setCertificates(BaseApp.getContext().getAssets().open("https.cer")))
                     .build();
         } catch (IOException e) {
             e.printStackTrace();

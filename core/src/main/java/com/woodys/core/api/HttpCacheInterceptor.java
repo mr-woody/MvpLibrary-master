@@ -2,7 +2,7 @@ package com.woodys.core.api;
 
 import android.util.Log;
 
-import com.woodys.core.App;
+import com.woodys.core.BaseApp;
 import com.woodys.core.control.NetWorkHelper;
 
 import java.io.IOException;
@@ -22,7 +22,7 @@ public class HttpCacheInterceptor implements Interceptor {
     @Override
     public Response intercept(Chain chain) throws IOException {
         Request request = chain.request();
-        if (!NetWorkHelper.isNetConnected(App.getContext())) {
+        if (!NetWorkHelper.isNetConnected(BaseApp.getContext())) {
             request = request.newBuilder()
                     .cacheControl(CacheControl.FORCE_CACHE)
                     .build();
@@ -30,7 +30,7 @@ public class HttpCacheInterceptor implements Interceptor {
         }
 
         Response originalResponse = chain.proceed(request);
-        if (NetWorkHelper.isNetConnected(App.getContext())) {
+        if (NetWorkHelper.isNetConnected(BaseApp.getContext())) {
             //有网的时候读接口上的@Headers里的配置，你可以在这里进行统一的设置
             String cacheControl = request.cacheControl().toString();
             return originalResponse.newBuilder()

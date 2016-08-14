@@ -12,7 +12,6 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 
-import com.readystatesoftware.systembartint.SystemBarTintManager;
 import com.woodys.core.R;
 import com.woodys.core.control.BaseAppManager;
 import com.woodys.core.control.SmartBarUtils;
@@ -21,6 +20,7 @@ import com.woodys.core.control.netstatus.NetChangeObserver;
 import com.woodys.core.control.netstatus.NetStateReceiver;
 import com.woodys.core.control.netstatus.NetUtils;
 import com.woodys.core.widget.loading.VaryViewHelperController;
+import com.woodys.core.widget.systemBar.SystemBarTintManager;
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;

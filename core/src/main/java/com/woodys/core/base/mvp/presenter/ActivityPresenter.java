@@ -20,7 +20,7 @@ import android.view.Menu;
 import android.widget.Toolbar;
 
 import com.woodys.core.base.mvp.view.IDelegate;
-import com.woodys.core.ui.BaseSwipeBackActivity;
+import com.woodys.core.widget.swipeback.app.SwipeBackActivity;
 
 
 /**
@@ -29,7 +29,7 @@ import com.woodys.core.ui.BaseSwipeBackActivity;
  *@author kymjs (http://www.kymjs.com/) on 10/23/15.
  * @param <T> View delegate class type
  */
-public abstract class ActivityPresenter<T extends IDelegate> extends BaseSwipeBackActivity {
+public abstract class ActivityPresenter<T extends IDelegate> extends SwipeBackActivity {
     protected T viewDelegate;
 
     public ActivityPresenter() {
