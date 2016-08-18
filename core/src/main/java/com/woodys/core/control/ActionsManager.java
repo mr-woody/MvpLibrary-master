@@ -16,17 +16,17 @@ import rx.Subscriber;
  * Created by malk on 16/7/25.
  */
 
-public class ActionManager {
+public class ActionsManager {
 
 
-    public static final String TAG = ActionManager.class.getSimpleName();
-    private static ActionManager instance;
+    public static final String TAG = ActionsManager.class.getSimpleName();
+    private static ActionsManager instance;
 
     private Map<String, TreeSet<Action>> mActionMap = new HashMap<>();
 
-    public static ActionManager getInstance() {
+    public static ActionsManager getInstance() {
         if (instance == null) {
-            instance = new ActionManager();
+            instance = new ActionsManager();
         }
         return instance;
     }

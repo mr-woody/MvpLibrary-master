@@ -6,6 +6,7 @@ import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.TransitionDrawable;
 import android.os.Handler;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.AlphaAnimation;
@@ -27,7 +28,7 @@ import com.nineoldandroids.animation.ObjectAnimator;
 import com.nineoldandroids.animation.PropertyValuesHolder;
 import com.nineoldandroids.animation.ValueAnimator;
 import com.woodys.core.R;
-import com.woodys.core.listener.ITask;
+import com.woodys.core.listener.Task;
 
 /**
  * 管理动画显示
@@ -303,12 +304,13 @@ public class AnimationUtils {
                 | (int) ((startB + (int) (fraction * (endB - startB))));
     }
 
-    public static void setValueWithAnim(final ITask<String> task, int toValue) {
+    public static void setValueWithAnim(final Task<String> task, int toValue) {
         ValueAnimator valueAnimator = ObjectAnimator.ofInt(toValue);
         valueAnimator.setDuration(300);
         valueAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
             @Override
             public void onAnimationUpdate(ValueAnimator valueAnimator) {
+                Log.e("tag", valueAnimator.getAnimatedValue().toString());
                 if (null != task) {
                     task.run(valueAnimator.getAnimatedValue().toString());
                 }
@@ -324,7 +326,7 @@ public class AnimationUtils {
      * @param value
      * @param targetValue
      */
-    public static void startIntValueAnim(Context context,final TextView view, final int res, final int value, int targetValue, long duration) {
+    public static void startIntValueAnim(Context context, final TextView view, final int res, final int value, int targetValue, long duration) {
         AnimValue<Integer> animValue = new AnimValue<>(value);
         ValueAnimator valueAnimator = ObjectAnimator.ofInt(animValue, "v", targetValue);
         valueAnimator.setDuration(duration);
@@ -370,7 +372,7 @@ public class AnimationUtils {
      *
      * @param view
      */
-    public static void startShake(Context context,View view) {
+    public static void startShake(Context context, View view) {
         Animation shake = android.view.animation.AnimationUtils.loadAnimation(context, R.anim.shake);//加载动画资源文件
         view.startAnimation(shake); //给组件播放动画效果
     }
